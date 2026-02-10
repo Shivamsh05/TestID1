@@ -20,7 +20,7 @@ public class Login_test {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 //
-        // Wait for Username field
+        // Wait for Username field username 
         WebElement username =
                 wait.until(ExpectedConditions.visibilityOfElementLocated(
                         By.xpath("//input[@placeholder='Username']")));
