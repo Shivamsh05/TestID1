@@ -16,9 +16,6 @@ public class Login_test {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
-        // ❌ Remove implicit wait when using explicit wait
-        // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
-
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -35,16 +32,7 @@ public class Login_test {
                         By.xpath("//input[@placeholder='Password']")));
         password.sendKeys("admin123");
         Thread.sleep(3000);
-//
-//        // Wait for Login button to be clickable
-//        WebElement loginBtn =
-//                wait.until(ExpectedConditions.elementToBeClickable(
-//                        By.xpath("//button[@type='submit']")));
-//        loginBtn.click();
-//        driver.findElement(By.xpath("//input[@name='username']")).sendKeys("Admin");
-//    	driver.findElement(By.xpath("//input[@name='password']")).sendKeys("admin123");
-    	
-//    	driver.findElement(By.xpath("//button[@type='submit']")).click();
+//       wait for login button 
     	 WebElement loginBtn =
                wait.until(ExpectedConditions.elementToBeClickable(
                        By.xpath("//button[@type='submit']")));
