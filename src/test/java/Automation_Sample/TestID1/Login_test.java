@@ -15,19 +15,18 @@ public class Login_test {
 //        WebDriver driver = new ChromeDriver();
         WebDriver driver = new FirefoxDriver();
         FirefoxOptions options = new FirefoxOptions();
+        String BaseURL= "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
         
         // Add the "--headless" argument
-        options.addArguments("--headless");
-        driver.manage().window().maximize();
+//        options.addArguments("--headless");
+//        driver.manage().window().maximize();
 
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        driver.get(BaseURL);
+       
 
         Login_Page loginpage = new Login_Page(driver); 
         loginpage.login();
-        Thread.sleep(5000);
         loginpage.logout();
-        Thread.sleep(5000);
-
         driver.quit();
     }
 }

@@ -31,13 +31,12 @@ public class Login_Page {
     By LoginButton = By.xpath("//button[@type='submit']");
     By profileMenu = By.xpath("//span[@class='oxd-userdropdown-tab']");
     By LogoutButton = By.xpath("//ul[@class='oxd-dropdown-menu']");
-
+    By LogoutBtn = By.xpath("//a[text()='Logout']");
 
     public Login_Page(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
-    @Test
     public void login() {
     	try {
         wait.until(ExpectedConditions.visibilityOfElementLocated(Username)).sendKeys("Admin");
@@ -59,27 +58,21 @@ public class Login_Page {
     		 logger.error("Error occurred", e);
     	}
     }
-    @Test
     public void logout() throws InterruptedException {
     	//To be continue....
     	
     	try {
     		wait.until(ExpectedConditions.elementToBeClickable(profileMenu)).click();
+    		System.out.println("Profile menu clicked");
+
     		}catch(Exception e) {
     		System.out.println("Profile menu not found"+e);
     		 logger.error("Error occurred", e);
     		}
     	try {
     		Thread.sleep(5000);
-//        	wait.until(ExpectedConditions.elementToBeClickable(LogoutButton)).click();
-    		List<WebElement> list = driver.findElements(LoginButton);
-    		for (WebElement i : list) {
-    		    if (i.getText().equals("Logout")) {
-    		    	System.out.println(i);
-    		        i.click();
-    		        break;
-    		    }
-    		}
+        	wait.until(ExpectedConditions.elementToBeClickable(LogoutBtn)).click();
+
         	logger.info("User logged out successfully..");
         	}catch(Exception e) {
         		System.out.println("Logout button not found"+e);
